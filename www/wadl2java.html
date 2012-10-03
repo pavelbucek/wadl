@@ -19,8 +19,11 @@
 <h2 id="commandline">General</h2>
 
 <p>The current release of this tool will generate a java client based on the 
-provided WADL that maks use of the Jersey 1.x client API. Future versions of the
-tool will generate clients for JAX-RS 2.0 and Jersey 2.x proxy bsaed clients.</p>
+provided WADL that maks use of the Jersey 1.x and JAX-RS 2.0 client API. Future 
+versions of the tool will generate clients for JAX-RS 2.0 proxy bsaed clients.</p>
+
+<p>The default generation style is <code>jersey1x</code> but you can generate
+JAX-RS 2.0 compatible code by setting this to be <code>jaxrs20</code></p>
 
 <p>When analyzing the WADL the generator will produce one class per WADL root 
 resource. You can override the uri at deploy time by creating a <a href="http://kingsfleet.blogspot.co.uk/2012/03/catalog-support-for-wadl-client.html">
@@ -37,7 +40,7 @@ jax-rs-catalog.xml file</a> under META-INF.</p>
 
 <p>Execute the <code>wadl2java</code> tools as follows:</p>
 
-<pre>wadl2java -o <i>outputDir</i> -p <i>package</i> [-a] [-c <i>customization</i>]* <i>file.wadl</i></pre>
+<pre>wadl2java -o <i>outputDir</i> -p <i>package</i> [-a] [-s jaxrs20] [-c <i>customization</i>]* <i>file.wadl</i></pre>
 
 <p>where:</p>
 
@@ -50,6 +53,8 @@ jax-rs-catalog.xml file</a> under META-INF.</p>
 <dd>turns on automatic package name generation for schema files. If not specified, all generated code goes into <code><i>package</i></code>. If specified, each schema namespace name is mapped to a package name and classes generated for elements and types in that namespace are generated in their own package</dd>
 <dt><code>-c <i>customization</i></code></dt>
 <dd>is the path or URL of a JAXB binding customization file (zero or more customization files can be specified)</dd>
+<dt><code>-s jaxrs20</code></dt>
+<dd>Specifies the generation style for the code, defaults to jersey1x</dd>
 <dt><code><i>file.wadl</i></code></dt>
 <dd>is the path or URL of the WADL file to process</dd>
 </dl>
@@ -93,6 +98,8 @@ jax-rs-catalog.xml file</a> under META-INF.</p>
 <p>where <code><i>outputDir</i></code>, <code><i>package</i></code>, <code><i>customization</i></code> and <code><i>file.wadl</i></code> are as <a href="#commandline">specified above</a>.<p>
 
 <p>The Ant plug-in task has additional capabilities not provided with the command line tool: before the WADL file is processed it compares the modification dates of <code><i>file.wadl</i></code>, <code><i>package</i></code> and any file listed in a child <code>&lt;depends&gt;</code> element to the modification dates of any files listed in a child <code>&lt;produces&gt;</code> element. If any of the former are more recent that the oldest of the latter then <code><i>file.wadl</i></code> is processed, otherwise processing is skipped, this means that the tool will only run when its deemed necessary. In the example above, the tool will only run when the WADL file, the customization file, one of the imported schemas, the build script or the <code>wadl2java</code> tool is modified.</p>
+
+<p>The style of the generated  proxy is controlled using the <code>&lt;generationStyle></code> element under the wjc element.</p>
 
 <h2 id="maven">Maven Plug-in Usage</h2>
 
@@ -205,6 +212,10 @@ jax-rs-catalog.xml file</a> under META-INF.</p>
     &lt;/plugins&gt;
   &lt;/build&gt;
 &lt;/project&gt;</pre>
+
+
+<p>The style of the generated  proxy is controlled using the <code>&lt;generationStyle></code> element under the configuration element.</p>
+
 </div>
 </body>
 </html>
