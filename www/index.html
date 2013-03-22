@@ -27,22 +27,24 @@ div.copy{color:#FFF;padding:2px 8px 4px 8px}</pre>
 
 <h2>wadl2java</h2>
 
-<p>The latest distribution can be downloaded <a href="http://search.maven.org/remotecontent?filepath=org/jvnet/ws/wadl/wadl-dist/1.1.3/wadl-dist-1.1.3-bin.zip">here</a>.(Version 1.1.3, October 2012)</p>
+<p>The latest distribution can be downloaded <a href="http://search.maven.org/remotecontent?filepath=org/jvnet/ws/wadl/wadl-dist/1.1.4/wadl-dist-1.1.4-bin.zip">here</a>.(Version 1.1.4, March 2013)</p>
 
-<p>The distribution contains the following:</p>
+<p>The distribution contains the following tools that will generate client from a WADL for both Jersey 1.x and Jersey 2.x. It 
+will generate binding objects based on referenced XML Schema, JAX-B binding, or <a href="http://kingsfleet.blogspot.co.uk/2012/11/json-schema-in-wadl.html">JSON Grammar</a> using Jackson based mappings.</p>
 <dl>
+<dt><code>wadl-xslt</code></dt><dd>A collection of useful .xsl transforms including: one to upgrade '2006 WADL to '2009 WADL; and one to generate a HTML description of the WADL.</dd>
 <dt><code>wadl-cmdline</code></dt><dd>A command line tool that generates client side stubs from WADL files, see the <a href="wadl2java.html"><code>wadl2java</code> documentation</a> for full details.</dd>
 <dt><code>wadl-ant</code></dt><dd>An Ant plug-in that generates client side stubs from WADL files, see the <a href="wadl2java.html"><code>wadl2java</code> documentation</a> for full details.</dd>
-<dt><code>wadl-client-plugin</code></dt><dd>A Maven plug-in that generates client side stubs from WADL files that work with the Jersey 1.x client, see the <a href="wadl2java.html"><code>wadl2java</code> documentation</a> for full details.</dd>
-<dt><code>wadl-dist</code></dt><dd>Sample projects that demostrate use of the <code>wadl2java</code> tools to create stubs for the <a href="http://developer.yahoo.com/search/news/V1/newsSearch.html">Yahoo News Search Service</a>.</dd>
+<dt><code>wadl-client-plugin</code></dt><dd>A Maven plug-in that generates client side stubs from WADL files, see the <a href="wadl2java.html"><code>wadl2java</code> documentation</a> for full details.</dd>
+<dt><code>wadl-dist</code></dt><dd>Sample projects that demonstrate use of the <code>wadl2java</code> tools to create stubs for the <a href="http://www.bbc.co.uk/programmes/developers">BBC Schedule API</a>.</dd>
 </dl>
 
 <h2>Other Resources</h2>
 <dl>
 <dt><code>wadl_documentation.xsl</code></dt><dd>Mark Nottingham has created a <a href="http://github.com/mnot/wadl_stylesheets/tree/master">project to develop XSLT stylesheets</a> to transform WADL documents into human-readable documentation.</dd>
 <dt><code>wadl.xsl</code></dt><dd>Mark Sawers has published an alternative <a href="https://github.com/ipcsystems/wadl-stylesheet">XSLT stylesheet</a> to transform WADL documents into human-readable documentation.</dd>
-<dt><code>wadl2java</code><dt><dd>The Apache CXF project has a <a href="http://cxf.apache.org/docs/jaxrs-services-description.html#JAXRSServicesDescription-WADLfirstDevelopment">tool also called wadl2java</a> that generates for both the client and the service.</dd>
-
+<dt><code>wadl2java</code></dt><dd>The Apache CXF project has a <a href="http://cxf.apache.org/docs/jaxrs-services-description.html#JAXRSServicesDescription-WADLfirstDevelopment">tool also called wadl2java</a> that generates for both the client and the service.</dd>
+<dt><code>jsonschema2pojo</code></dt><dd>The <a href="http://code.google.com/p/jsonschema2pojo/">jsonschema2pojo project</a> used to generate the JSON Schema binding classes.</dd>
 </dl>
 
 <h2 id="wadlcontrib">Contributing to the Project</h2>
@@ -82,7 +84,7 @@ $ mvn package</pre>
 
 <p>The complete distribution will be built in:</p>
 
-<pre>wadl-dist/target/wadl-dist-1.1.3-SNAPSHOT-bin.zip</pre>
+<pre>wadl-dist/target/wadl-dist-1.1.5-SNAPSHOT-bin.zip</pre>
 
 <p>After unpacking the distribution, see the content of the <code>samples</code> directory for examples of how to use <code>wadl2java</code> from the command line, from Ant and from Maven.</p>
 

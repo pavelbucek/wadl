@@ -19,11 +19,12 @@
 <h2 id="commandline">General</h2>
 
 <p>The current release of this tool will generate a java client based on the 
-provided WADL that maks use of the Jersey 1.x and JAX-RS 2.0 client API. Future 
-versions of the tool will generate clients for JAX-RS 2.0 proxy bsaed clients.</p>
+provided WADL that makes use of the Jersey 1.x and JAX-RS 2.0 client API. Future 
+versions of the tool will generate clients for JAX-RS 2.x proxy based clients
+when this is standardized.</p>
 
 <p>The default generation style is <code>jersey1x</code> but you can generate
-JAX-RS 2.0 compatible code by setting this to be <code>jaxrs20</code></p>
+Jersey 2.0 compatible code by setting this to be <code>jaxrs20</code></p>
 
 <p>When analyzing the WADL the generator will produce one class per WADL root 
 resource. You can override the uri at deploy time by creating a <a href="http://kingsfleet.blogspot.co.uk/2012/03/catalog-support-for-wadl-client.html">
@@ -90,7 +91,7 @@ jax-rs-catalog.xml file</a> under META-INF.</p>
     &lt;depends dir="." includes="*.xsd"/&gt;
     &lt;depends dir="." includes="build.xml"/&gt;
     &lt;depends dir="${wadl2java.project}" includes="wadl2java.jar"/&gt;
-    &lt;customClassName uri="http://api.search.yahoo.com/NewsSearchService/V1/" classname="YahooNews" /&gt;
+    &lt;customClassName uri="http://www.bbc.co.uk" classname="BBCSchedule" /&gt;
   &lt;/wjc&gt;
 &lt;/target&gt;
 </pre>
@@ -126,10 +127,10 @@ jax-rs-catalog.xml file</a> under META-INF.</p>
 <pre>&lt;?xml version="1.0"?&gt;
 &lt;project&gt;
   &lt;modelVersion&gt;4.0.0&lt;/modelVersion&gt;
-  &lt;groupId&gt;com.yahoo.search&lt;/groupId&gt;
-  &lt;artifactId&gt;search-api&lt;/artifactId&gt;
+  &lt;groupId&gt;bbc.schedule&lt;/groupId&gt;
+  &lt;artifactId&gt;schedule-api&lt;/artifactId&gt;
   &lt;version&gt;1.1-SNAPSHOT&lt;/version&gt;
-  &lt;name&gt;Yahoo Search API&lt;/name&gt;
+  &lt;name&gt;BBC Schedule API&lt;/name&gt;
   &lt;repositories&gt;
     &lt;repository&gt;
       &lt;id&gt;wadl-repository&lt;/id&gt;
@@ -170,7 +171,7 @@ jax-rs-catalog.xml file</a> under META-INF.</p>
     &lt;dependency&gt;
       &lt;groupId&gt;org.jvnet.ws.wadl&lt;/groupId&gt;
       &lt;artifactId&gt;wadl-core&lt;/artifactId&gt;
-      &lt;version&gt;1.1.2&lt;/version&gt;
+      &lt;version&gt;1.1.4&lt;/version&gt;
     &lt;/dependency&gt;
   &lt;/dependencies&gt;
   &lt;build&gt;
@@ -179,14 +180,14 @@ jax-rs-catalog.xml file</a> under META-INF.</p>
         &lt;groupId&gt;org.apache.maven.plugins&lt;/groupId&gt;
         &lt;artifactId&gt;maven-compiler-plugin&lt;/artifactId&gt;
         &lt;configuration&gt;
-          &lt;source&gt;1.5&lt;/source&gt;
-          &lt;target&gt;1.5&lt;/target&gt;
+          &lt;source&gt;1.6&lt;/source&gt;
+          &lt;target&gt;1.6&lt;/target&gt;
         &lt;/configuration&gt;
       &lt;/plugin&gt;
       &lt;plugin&gt;
         &lt;groupId&gt;org.jvnet.ws.wadl&lt;/groupId&gt;
         &lt;artifactId&gt;wadl-client-plugin&lt;/artifactId&gt;
-        &lt;version&gt;1.1.2&lt;/version&gt;
+        &lt;version&gt;1.1.4&lt;/version&gt;
         &lt;executions&gt;
           &lt;execution&gt;
             &lt;goals&gt;
@@ -196,15 +197,15 @@ jax-rs-catalog.xml file</a> under META-INF.</p>
         &lt;/executions&gt;
         &lt;configuration&gt;
           &lt;sourceDirectory&gt;../share&lt;/sourceDirectory&gt;
-          &lt;packageName&gt;com.yahoo.search&lt;/packageName&gt;
-          &lt;autopackaging&gt;true&lt;/autopackaging&gt;
+          &lt;packageName&gt;bbc.schedule&lt;/packageName&gt;
+          &lt;autopackaging&gt;false&lt;/autopackaging&gt;
           &lt;customizations&gt;
             &lt;customization&gt;../share/binding.xjb&lt;/customization&gt;
           &lt;/customizations&gt;
           &lt;customClassNames>
             &lt;property>
-              &lt;name>http://api.search.yahoo.com/NewsSearchService/V1/&lt;/name>
-              &lt;value>YahooNews&lt;/value>
+              &lt;name>http://www.bbc.co.uk&lt;/name>
+              &lt;value>BBCSchedule&lt;/value>
             &lt;/property>
          &lt;/customClassNames>
         &lt;/configuration&gt;
