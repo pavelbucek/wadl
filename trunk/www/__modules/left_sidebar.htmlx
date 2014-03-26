@@ -7,18 +7,18 @@
 	  <div id="navcol">
 	    <dl id="projecttools" class="navgroup" style="text-align: left;">
 	      <dt id="current-zone" class="depth0">
-		<a href="http://glassfish.java.net/">GlassFish Community</a>
+		<a href="https://glassfish.java.net/">GlassFish Community</a>
 	      </dt>
 	      <dd class="depth0 parent parent" id="menubar">
 <ul id="main-menubar">
     <li>
-      <a href="http://java.net/projects/wadl/lists">Mailing lists</a>
+      <a href="https://java.net/projects/wadl/lists">Mailing lists</a>
     <li>
-        <a href="http://java.net/projects/wadl/roles">Membership</a>
+        <a href="https://java.net/projects/wadl/roles">Membership</a>
     <li>
-	<a href="http://java.net/projects/wadl/sources/svn/show/" match="http://java.net/projects/wadl/sources/svn/show/.*">Subversion repository</a>
+	<a href="https://java.net/projects/wadl/sources/svn/show/" match="https://java.net/projects/wadl/sources/svn/show/.*">Subversion repository</a>
     <li>
-        <a href="http://java.net/jira/browse/WADL/">IssueTracker</a>
+        <a href="https://java.net/jira/browse/WADL/">IssueTracker</a>
 </ul>
 
 <script>
@@ -26,8 +26,8 @@ var info = {
 	title: "WADL",
 }
 </script>
-<script src="http://glassfish-theming.java.net/zone-webtier.js"></script>
-<script src="http://glassfish-theming.java.net/theme.js"></script>
+<script src="https://glassfish-theming.java.net/zone-webtier.js"></script>
+<script src="https://glassfish-theming.java.net/theme.js"></script>
 
 
 <!-- Google Analytics -->
